@@ -8,7 +8,12 @@ module.exports = {
         fontFamily: {
             sans: ["Inter", "sans-serif"],
         },
-        extend: {},
+        extend: {
+            colors: {
+                primary: "#005F6C",
+                secondary: "#FF5B24",
+            },
+        },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/forms")],
 };
