@@ -16,3 +16,8 @@ Breadcrumbs::for('checkout', function (BreadcrumbTrail $trail) {
   $trail->parent('booking');
   $trail->push('Checkout', route('checkout'));
 });
+
+Breadcrumbs::for('profile', function (BreadcrumbTrail $trail) {
+  $trail->parent('home');
+  $trail->push('Profile', route('account'));
+});
