@@ -19,6 +19,16 @@ Route::name('admin.')->prefix('admin')->group(function () {
     })->name('dashboard');
 });
 
+Route::name('auth.')->prefix('auth')->group(function () {
+    Route::get('/sign-in', function () {
+        return view('admin.auth.sign-in');
+    })->name('sign-in');
+
+    Route::get('/sign-up', function () {
+        return view('admin.auth.sign-up');
+    })->name('sign-up');
+});
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
