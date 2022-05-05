@@ -4,9 +4,8 @@
 @include('partials.head')
 
 <body class="flex flex-col min-h-screen h-full items-center justify-start">
-    @include('partials.navbar')
+    @include('partials.navbar-logo')
     @yield('content')
-    @include('partials.footer-contact')
     @stack('custom-script')
 </body>
 
