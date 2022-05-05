@@ -36,7 +36,7 @@
                         class="peer group sr-only" />
                     <div
                         class="flex flex-col items-center justify-center rounded h-full p-8 border-2 border-gray-300 peer-checked:bg-primary/25 peer-checked:border-primary/50">
-                        <img src="{{ asset('img/icon/logo-mandiri.svg') }}" alt="">
+                        <img src="{{ asset('img/icon/logo-mandiri.svg') }}" alt="mandiri-logo">
                     </div>
                 </label>
                 <label for="ovo-payment" class="relative">
@@ -44,7 +44,7 @@
                         class="peer group sr-only" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full p-8 border-2 border-gray-300 peer-checked:bg-primary/25 peer-checked:border-primary/50">
-                        <img src="{{ asset('img/icon/logo-ovo.svg') }}" alt="">
+                        <img src="{{ asset('img/icon/logo-ovo.svg') }}" alt="ovo-logo">
                     </div>
                 </label>
             </div>
@@ -57,7 +57,7 @@
         <button
             class="flex flex-row font-semibold text-xl bg-secondary rounded-lg py-3 px-6 h-fit text-white items-center justify-center">
             <span class="inline-block items-center mr-3">
-                <img src="{{ asset('img/icon/search-icon.svg') }}" />
+                <img src="{{ asset('img/icon/search-icon.svg') }}" alt="search-icon" />
             </span>Cari
         </button>
     </form>

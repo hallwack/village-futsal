@@ -257,7 +257,7 @@
                 class="font-semibold text-xl w-fit bg-secondary rounded-lg py-3 px-6 h-fit text-white items-center justify-center">
                 Booking
             </button>
-            <a
+            <a href="#"
                 class="font-semibold text-xl py-3 w-fit px-6 rounded-lg border-2 border-primary/40 text-primary/70">Kembali</a>
         </div>
     </form>

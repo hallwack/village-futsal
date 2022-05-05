@@ -21,12 +21,14 @@
                 </select>
             </div>
             <button
-                class="flex flex-row font-semibold text-xl bg-secondary rounded-lg py-3 px-6 h-fit text-white items-center justify-center"><span
-                    class="inline-block items-center mr-3"><img
-                        src="{{ asset('img/icon/search-icon.svg') }}" /></span>Cari</button>
+                class="flex flex-row font-semibold text-xl bg-secondary rounded-lg py-3 px-6 h-fit text-white items-center justify-center">
+                <span class="inline-block items-center mr-3">
+                    <img src="{{ asset('img/icon/search-icon.svg') }}" alt="search-icon" />
+                </span>Cari
+            </button>
         </form>
     </div>
-    <img src="{{ asset('img/hero-image.png') }}" class="w-1/2 object-cover" />
+    <img src="{{ asset('img/hero-image.png') }}" class="w-1/2 object-cover" alt="hero-image" />
 </div>
 <div class="bg-primary/5 w-full h-full">
     <div class="flex flex-col items-center justify-center container mx-auto py-24 space-y-12">
@@ -38,7 +40,7 @@
                 </div>
                 <div class="flex flex-col justify-between">
                     <p class="text-xl font-medium text-slate-800">Cari lapangan sesuai tanggal yang kamu mau.</p>
-                    <img src="{{ asset('img/step-1.png') }}" class="w-24" />
+                    <img src="{{ asset('img/step-1.png') }}" class="w-24" alt="first-step" />
                 </div>
             </div>
             <div class="w-full h-48 flex flex-row space-x-8">
@@ -47,7 +49,7 @@
                 </div>
                 <div class="flex flex-col justify-between">
                     <p class="text-xl font-medium text-slate-800">Pilih jadwal yang tersedia.</p>
-                    <img src="{{ asset('img/step-2.png') }}" class="w-40" />
+                    <img src="{{ asset('img/step-2.png') }}" class="w-40" alt="second-step" />
                 </div>
             </div>
             <div class="w-full h-48 flex flex-row space-x-8">
@@ -56,7 +58,7 @@
                 </div>
                 <div class="flex flex-col justify-between">
                     <p class="text-xl font-medium text-slate-800">Booking dan bayar secara online.</p>
-                    <img src="{{ asset('img/step-3.png') }}" class="w-16" />
+                    <img src="{{ asset('img/step-3.png') }}" class="w-16" alt="third-step" />
                 </div>
             </div>
             <div class="w-full h-48 flex flex-row space-x-8">
@@ -65,7 +67,7 @@
                 </div>
                 <div class="flex flex-col justify-between">
                     <p class="text-xl font-medium text-slate-800">Selesai!</p>
-                    <img src="{{ asset('img/step-4.png') }}" class="w-16" />
+                    <img src="{{ asset('img/step-4.png') }}" class="w-16" alt="fourth-step" />
                 </div>
             </div>
         </div>
@@ -73,7 +75,7 @@
 </div>
 <div class="container mx-auto flex flex-row w-full h-full items-center justify-center py-24">
     <div class="w-1/2 flex items-center justify-center">
-        <img src="{{ asset('img/about-image.png') }}" class="object-cover w-96" />
+        <img src="{{ asset('img/about-image.png') }}" class="object-cover w-96" alt="about-image" />
     </div>
     <div class="w-1/2 flex flex-col space-y-8">
         <h1 class="font-bold text-5xl text-primary">Tentang Kami</h1>

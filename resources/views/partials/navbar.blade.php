@@ -1,6 +1,8 @@
 <nav class="w-full border-b-2 border-b-slate-200">
     <div class="flex flex-row container mx-auto items-center justify-between py-8">
-        <img src="{{ asset('img/icon/Logo.svg') }}" class="object-cover" />
+        <a href="#">
+            <img src="{{ asset('img/icon/Logo.svg') }}" class="object-cover" alt="village-futsal-icon" />
+        </a>
         <div class="flex flex-row items-center space-x-8">
             <a href="#" class="font-medium text-lg">Home</a>
             <a href="#" class="text-slate-800/70 hover:text-slate-800 text-lg">Booking</a>
@@ -8,9 +10,10 @@
             <a href="#" class="text-slate-800/70 hover:text-slate-800 text-lg">Kontak</a>
             <div class="relative">
                 <button class="flex flex-row space-x-3 items-center dropbtn" onclick="toggleDropdown()">
-                    <img src="{{ asset('img/adam.jpg') }}" class="rounded-full w-12 h-12 object-cover" />
+                    <img src="{{ asset('img/adam.jpg') }}" class="rounded-full w-12 h-12 object-cover"
+                        alt="profile-photo" />
                     <p class="text-slate-800/70 hover:text-slate-800 text-lg">Raihan Adam</p>
-                    <img src="{{ asset('img/icon/dropdown-icon.svg') }}" />
+                    <img src="{{ asset('img/icon/dropdown-icon.svg') }}" alt="dropdown-icon" />
                 </button>
                 <div class="absolute hidden overflow-hidden mt-4 bg-white rounded drop-shadow-xl w-full dropdown-content"
                     id="dropdownNav">

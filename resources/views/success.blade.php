@@ -37,6 +37,6 @@
             <p class="text-slate-800 text-xl font-semibold">Rp 80.000</p>
         </div>
     </div>
-    <a class="font-semibold text-lg bg-secondary rounded-md py-3 px-6 text-white">Kembali ke Home</a>
+    <a href="#" class="font-semibold text-lg bg-secondary rounded-md py-3 px-6 text-white">Kembali ke Home</a>
 </div>
 @endsection

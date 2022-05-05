@@ -9,7 +9,7 @@
     <div class="w-3/5 divide-y-2 divide-slate-200 p-8 border rounded-md border-slate-200">
         <div class="flex flex-row justify-between items-center pb-8">
             <p class="text-xl font-semibold text-slate-800">Mandiri Virtual Account</p>
-            <img src="{{ asset('img/icon/logo-mandiri.svg') }}" class="w-1/5" alt="bang mandiri">
+            <img src="{{ asset('img/icon/logo-mandiri.svg') }}" class="w-1/5" alt="mandiri-logo">
         </div>
         <div class="pt-8 flex flex-col space-y-4">
             <div class="flex flex-row justify-between">
@@ -18,7 +18,7 @@
                     <p class="text-slate-800 font-semibold text-xl" id="payment-number">8888881234567890</p>
                 </div>
                 <button class="text-primary flex flex-row items-center" onclick="copyText()">
-                    Salin <span class="ml-4"><img src="{{ asset('img/icon/copy-icon.svg') }}" alt="copy"></span>
+                    Salin <span class="ml-4"><img src="{{ asset('img/icon/copy-icon.svg') }}" alt="copy-icon"></span>
                 </button>
             </div>
             <div>
@@ -27,14 +27,14 @@
             </div>
         </div>
     </div>
-    <a class="font-semibold text-lg bg-secondary rounded-md py-3 px-6 text-white">Konfirmasi Pembayaran</a>
+    <a href="#" class="font-semibold text-lg bg-secondary rounded-md py-3 px-6 text-white">Konfirmasi Pembayaran</a>
     <div class="w-full flex flex-col items-center space-y-8">
         <h2 class="text-left text-slate-800 text-xl font-semibold">Cara Pembayaran</h2>
         <div class="w-3/5 flex flex-col space-y-4">
             <div class="divide-y-2 divide-slate-200 p-8 border rounded-md border-slate-200">
                 <div class="flex flex-row justify-between items-center pb-8">
                     <p class="text-xl font-semibold text-slate-800">ATM Mandiri</p>
-                    <img src="{{ asset('img/icon/dropdown-icon.svg') }}" class="w-6" alt="bang mandiri">
+                    <img src="{{ asset('img/icon/dropdown-icon.svg') }}" class="w-6" alt="dropdown-icon">
                 </div>
                 <div class="p-8 flex flex-col space-y-4">
                     <ol class="list-decimal text-slate-800">
@@ -53,7 +53,7 @@
             <div class="divide-y-2 divide-slate-200 p-8 border rounded-md border-slate-200">
                 <div class="flex flex-row justify-between items-center pb-8">
                     <p class="text-xl font-semibold text-slate-800">Mandiri Internet Banking / Livin' By Mandiri</p>
-                    <img src="{{ asset('img/icon/dropdown-icon.svg') }}" class="w-6" alt="bang mandiri">
+                    <img src="{{ asset('img/icon/dropdown-icon.svg') }}" class="w-6" alt="dropdown-icon">
                 </div>
                 <div class="p-8 flex flex-col space-y-4">
                     <ol class="list-decimal text-slate-800">

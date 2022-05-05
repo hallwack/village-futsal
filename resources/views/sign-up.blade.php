@@ -29,7 +29,7 @@
         </div>
         <button type="submit"
             class="bg-secondary rounded w-full text-white py-2 text-xl font-semibold mt-6 mb-4">Daftar</button>
-        <p class="text-slate-800">Sudah punya akun? <a class="underline text-primary">Masuk</a></p>
+        <p class="text-slate-800">Sudah punya akun? <a href="#" class="underline text-primary">Masuk</a></p>
     </form>
 </div>
 @endsection

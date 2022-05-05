@@ -7,7 +7,7 @@
     <form class="flex flex-col items-center justify-start border border-gray-200 rounded-lg p-12">
         <div class="flex flex-col items-center justify-start space-y-8 mb-8">
             <img src="{{ asset('img/icon/upload-icon.svg') }}" class="bg-slate-200 p-10 object-cover rounded-full"
-                id="imgOutput" />
+                id="imgOutput" alt="upload-icon" />
             <div class="flex flex-col items-center">
                 <p class="text-lg font-bold text-slate-800">Raihan Adam</p>
                 <p class="text-slate-800">hallwack.id@gmail.com</p>
