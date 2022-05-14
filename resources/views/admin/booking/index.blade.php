@@ -14,29 +14,7 @@
             <!--begin::Separator-->
             <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
             <!--end::Separator-->
-            <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">
-                    <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                </li>
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Kategori</li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                </li>
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-dark">Index</li>
-                <!--end::Item-->
-            </ul>
-            <!--end::Breadcrumb-->
+            {{ Breadcrumbs::view('admin.partials.breadcrumbs', 'booking-admin') }}
             </h1>
             <!--end::Title-->
         </div>
@@ -53,7 +31,7 @@
             <div class="col-xxl-12">
                 <div class="card shadow-sm">
                     <div class="card-header">
-                        <h3 class="card-title fs-2 fw-bolder">Kategori</h3>
+                        <h3 class="card-title fs-2 fw-bolder">Booking</h3>
                         <div class="card-toolbar">
                             <a href="{{ url('admin/category/create') }}" class="btn btn-sm btn-primary">
                                 Tambah
@@ -65,25 +43,43 @@
                             <thead>
                                 <tr class="fw-bold fs-6 text-muted">
                                     <th width="5%">No</th>
+                                    <th>Tanggal</th>
+                                    <th>Lapangan</th>
+                                    <th>Jam</th>
                                     <th>Nama</th>
-                                    <th width="15%">Aksi</th>
+                                    <th>No HP</th>
+                                    <th width="15%">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($items as $item)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->category_name }}</td>
+                                    <td>1</td>
+                                    <td>11/12/2013</td>
+                                    <td>Lapangan 1</td>
+                                    <td>21.00</td>
+                                    <td>Raihan</td>
+                                    <td>081278780940</td>
                                     <td>
-                                        <a href="{{ route('category.edit', $item->id) }}"
-                                            class="badge badge-warning">Edit</a>
-                                        <a data-bs-toggle="modal" data-bs-target="#kt_modal_1"
-                                            data-route="{{ route('category.destroy', $item->id) }}"
-                                            data-name="{{ $item->category_name }}" id="btn-delete"
-                                            class="badge badge-danger pe-auto">Delete</a>
+                                        <a href="1" class="badge badge-light-warning">Pending</a>
+                                        <a data-bs-toggle="modal" data-bs-target="#kt_modal_1" data-route="1"
+                                            data-name="booking" id="btn-delete"
+                                            class="badge badge-primary pe-auto">Lunas</a>
                                     </td>
                                 </tr>
-                                @endforeach
+                                {{-- @foreach ($items as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->category_name }}</td>
+                                <td>
+                                    <a href="{{ route('category.edit', $item->id) }}"
+                                        class="badge badge-warning">Edit</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#kt_modal_1"
+                                        data-route="{{ route('category.destroy', $item->id) }}"
+                                        data-name="{{ $item->category_name }}" id="btn-delete"
+                                        class="badge badge-danger pe-auto">Delete</a>
+                                </td>
+                                </tr>
+                                @endforeach --}}
                             </tbody>
                         </table>
                     </div>

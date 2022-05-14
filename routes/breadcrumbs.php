@@ -3,12 +3,17 @@
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
-Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-  $trail->push('Home', route('home'));
-});
-
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
   $trail->push('Dashboard', route('admin.dashboard'));
+});
+
+Breadcrumbs::for('booking-admin', function (BreadcrumbTrail $trail) {
+  $trail->parent('dashboard');
+  $trail->push('Booking', route('admin.booking.index'));
+});
+
+Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
+  $trail->push('Home', route('home'));
 });
 
 Breadcrumbs::for('booking', function (BreadcrumbTrail $trail) {
