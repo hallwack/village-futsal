@@ -13,7 +13,7 @@ class Field extends Model
 
     public function price()
     {
-        $this->hasOne(Price::class, 'price_id');
+        $this->hasMany(Price::class, 'price_id');
     }
 
     public function booking()

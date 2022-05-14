@@ -15,6 +15,6 @@ class Price extends Model
 
     public function field()
     {
-        $this->belongsTo(Field::class);
+        $this->belongsToMany(Field::class);
     }
 }
