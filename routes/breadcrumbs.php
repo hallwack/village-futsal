@@ -12,6 +12,11 @@ Breadcrumbs::for('booking-admin', function (BreadcrumbTrail $trail) {
   $trail->push('Booking', route('admin.booking.index'));
 });
 
+Breadcrumbs::for('user-admin', function (BreadcrumbTrail $trail) {
+  $trail->parent('dashboard');
+  $trail->push('User', route('admin.user.index'));
+});
+
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
   $trail->push('Home', route('home'));
 });

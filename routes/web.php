@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('price', PriceController::class);
     Route::resource('field', FieldController::class);
     Route::resource('booking', BookingController::class);
+    Route::resource('user', UserController::class);
 });
 
 Route::name('auth.')->prefix('auth')->group(function () {
