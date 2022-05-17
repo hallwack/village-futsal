@@ -9,6 +9,8 @@ class Admin extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['admin_name', 'admin_username', 'admin_email', 'admin_password'];
+
     public function booking()
     {
         $this->belongsToMany(Booking::class);

@@ -29,14 +29,16 @@ class RegisterController extends Controller
         ]);
 
         // $item = [];
-        $item['name'] = $request->name;
-        $item['username'] = $request->username;
-        $item['email'] = $request->email;
+        $item['admin_name'] = $request->name;
+        $item['admin_username'] = $request->username;
+        $item['admin_email'] = $request->email;
         $password = $request->password;
-        $item['password'] = bcrypt($password);
+        $item['admin_password'] = bcrypt($password);
 
         // $request->validated();
-        dd($request);
-        // Admin::create($item);
+        // dd($request);
+        Admin::create($item);
+
+        return view('admin.auth.sign-in');
     }
 }
