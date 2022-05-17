@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\PriceController;
-use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,12 +31,14 @@ Route::name('admin.')->prefix('admin')->group(function () {
 });
 
 Route::name('auth.')->prefix('auth')->group(function () {
-    Route::get('/login', function () {
-        return view('admin.auth.sign-in');
-    })->name('login');
 
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register');
+
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::get('/welcome', function () {
