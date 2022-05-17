@@ -10,7 +10,7 @@
         <!--end::Title-->
         <!--begin::Link-->
         <div class="text-gray-400 fw-bold fs-4">New Here?
-            <a href="{{ route('auth.sign-up') }}" class="link-primary fw-bolder">Create an
+            <a href="{{ route('auth.register') }}" class="link-primary fw-bolder">Create an
                 Account</a>
         </div>
         <!--end::Link-->
@@ -29,17 +29,9 @@
     <!--end::Input group-->
     <!--begin::Input group-->
     <div class="fv-row mb-10">
-        <!--begin::Wrapper-->
-        <div class="d-flex flex-stack mb-2">
-            <!--begin::Label-->
-            <label class="form-label fw-bolder text-dark fs-6 mb-0" for="password">Password</label>
-            <!--end::Label-->
-            <!--begin::Link-->
-            <a href="../../demo1/dist/authentication/flows/basic/password-reset.html"
-                class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
-            <!--end::Link-->
-        </div>
-        <!--end::Wrapper-->
+        <!--begin::Label-->
+        <label class="form-label fw-bolder text-dark fs-6 mb-0" for="password">Password</label>
+        <!--end::Label-->
         <!--begin::Input-->
         <input class="form-control form-control-lg form-control-solid" type="password" id="password" name="password"
             autocomplete="off" />
@@ -50,10 +42,7 @@
     <div class="text-center">
         <!--begin::Submit button-->
         <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
-            <span class="indicator-label">Continue</span>
-            <span class="indicator-progress">Please wait...
-                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-            </span>
+            <span class="indicator-label">Login</span>
         </button>
         <!--end::Submit button-->
     </div>

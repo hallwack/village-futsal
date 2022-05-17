@@ -11,7 +11,7 @@
         <!--end::Title-->
         <!--begin::Link-->
         <div class="text-gray-400 fw-bold fs-4">Already have an account?
-            <a href="{{ route('auth.sign-in') }}" class="link-primary fw-bolder">Sign in
+            <a href="{{ route('auth.login') }}" class="link-primary fw-bolder">Sign in
                 here</a>
         </div>
         <!--end::Link-->
