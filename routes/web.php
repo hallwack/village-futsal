@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RegisterController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\PriceController;
@@ -20,10 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('admin.')->prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard.home');
-    })->name('dashboard');
 
+    Route::resource('dashboard', AdminController::class);
     Route::resource('price', PriceController::class);
     Route::resource('field', FieldController::class);
     Route::resource('booking', BookingController::class);
