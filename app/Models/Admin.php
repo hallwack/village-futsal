@@ -4,15 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Admin extends Model
+class Admin extends Authenticatable
 {
     use HasFactory;
 
-    protected $fillable = ['admin_name', 'admin_username', 'admin_email', 'admin_password'];
+    protected $table = 'admins';
+    protected $guard = 'admin';
+
+    protected $fillable = ['admin_username', 'admin_password'];
 
     public function booking()
     {
         $this->belongsToMany(Booking::class);
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->admin_password;
     }
 }
