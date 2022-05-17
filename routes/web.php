@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,8 @@ Route::name('auth.')->prefix('auth')->group(function () {
         return view('admin.auth.sign-in');
     })->name('sign-in');
 
-    Route::get('/sign-up', function () {
-        return view('admin.auth.sign-up');
-    })->name('sign-up');
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register');
 });
 
 Route::get('/welcome', function () {

@@ -2,7 +2,8 @@
 
 @section('content')
 <!--begin::Form-->
-<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
+<form class="form w-100" id="form" method="POST" action="{{ route('auth.register') }}">
+    @csrf
     <!--begin::Heading-->
     <div class="mb-10 text-center">
         <!--begin::Title-->
@@ -24,56 +25,59 @@
     </div>
     <!--end::Separator-->
     <!--begin::Input group-->
-    <div class="row fv-row mb-7">
-        <!--begin::Col-->
-        <div class="col-xl-6">
-            <label class="form-label fw-bolder text-dark fs-6">First Name</label>
-            <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="first-name"
-                autocomplete="off" />
+    <div class="fv-row mb-7">
+        <label class="form-label fw-bolder text-dark fs-6" for="name">Nama</label>
+        <input class="form-control form-control-lg form-control-solid @error('name') is-invalid @enderror" type="text"
+            placeholder="" name="name" id="name" />
+        @error('name')
+        <div class="invalid-feedback">
+            {{ $message }}
         </div>
-        <!--end::Col-->
-        <!--begin::Col-->
-        <div class="col-xl-6">
-            <label class="form-label fw-bolder text-dark fs-6">Last Name</label>
-            <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last-name"
-                autocomplete="off" />
-        </div>
-        <!--end::Col-->
+        @enderror
     </div>
     <!--end::Input group-->
     <!--begin::Input group-->
     <div class="fv-row mb-7">
-        <label class="form-label fw-bolder text-dark fs-6">Email</label>
-        <input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email"
-            autocomplete="off" />
+        <label class="form-label fw-bolder text-dark fs-6" for="username">Username</label>
+        <input class="form-control form-control-lg form-control-solid @error('username') is-invalid @enderror"
+            type="text" placeholder="" name="username" id="username" />
+        @error('username')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
     <!--end::Input group-->
     <!--begin::Input group-->
-    <div class="mb-10 fv-row" data-kt-password-meter="true">
+    <div class="fv-row mb-7">
+        <label class="form-label fw-bolder text-dark fs-6" for="email">Email</label>
+        <input class="form-control form-control-lg form-control-solid @error('email') is-invalid @enderror" type="email"
+            placeholder="" name="email" id="email" />
+        @error('email')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+    <!--end::Input group-->
+    <!--begin::Input group-->
+    <div class="mb-10 fv-row">
         <!--begin::Wrapper-->
         <div class="mb-1">
             <!--begin::Label-->
-            <label class="form-label fw-bolder text-dark fs-6">Password</label>
+            <label class="form-label fw-bolder text-dark fs-6" for="password">Password</label>
             <!--end::Label-->
             <!--begin::Input wrapper-->
             <div class="position-relative mb-3">
-                <input class="form-control form-control-lg form-control-solid" type="password" placeholder=""
-                    name="password" autocomplete="off" />
-                <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
-                    data-kt-password-meter-control="visibility">
-                    <i class="bi bi-eye-slash fs-2"></i>
-                    <i class="bi bi-eye fs-2 d-none"></i>
-                </span>
+                <input class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
+                    type="password" placeholder="" name="password" id="password" autocomplete="off" />
+                @error('password')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <!--end::Input wrapper-->
-            <!--begin::Meter-->
-            <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
-                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
-                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
-                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
-                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
-            </div>
-            <!--end::Meter-->
         </div>
         <!--end::Wrapper-->
         <!--begin::Hint-->
@@ -84,27 +88,22 @@
     <!--end::Input group=-->
     <!--begin::Input group-->
     <div class="fv-row mb-5">
-        <label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
-        <input class="form-control form-control-lg form-control-solid" type="password" placeholder=""
-            name="confirm-password" autocomplete="off" />
+        <label class="form-label fw-bolder text-dark fs-6" for="password_confirmation">Confirm Password</label>
+        <input
+            class="form-control form-control-lg form-control-solid @error('password_confirmation') is-invalid @enderror"
+            type="password" placeholder="" name="password_confirmation" id="password_confirmation" autocomplete="off" />
+        @error('password_confirmation')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
     <!--end::Input group-->
-    <!--begin::Input group-->
-    <div class="fv-row mb-10">
-        <label class="form-check form-check-custom form-check-solid form-check-inline">
-            <input class="form-check-input" type="checkbox" name="toc" value="1" />
-            <span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
-                <a href="#" class="ms-1 link-primary">Terms and conditions</a>.</span>
-        </label>
-    </div>
     <!--end::Input group-->
     <!--begin::Actions-->
     <div class="text-center">
-        <button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
+        <button type="submit" id="btn_submit" class="btn btn-lg btn-primary">
             <span class="indicator-label">Submit</span>
-            <span class="indicator-progress">Please wait...
-                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-            </span>
         </button>
     </div>
     <!--end::Actions-->
@@ -114,6 +113,77 @@
 
 @push('scripts')
 <!--begin::Page Custom Javascript(used by this page)-->
-<script src="{{ asset('assets/js/custom/authentication/sign-up/general.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/custom/authentication/sign-up/general.js') }}"></script> --}}
+
+{{-- <script>
+    FormValidation.formValidation(document.querySelector("#form"), {
+        fields: {
+            "first_name": {
+                validators: {
+                    notEmpty: {
+                        message: "First Name is required"
+                    }
+                }
+            },
+            "last_name": {
+                validators: {
+                    notEmpty: {
+                        message: "Last Name is required"
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: "Email address is required"
+                    },
+                    emailAddress: {
+                        message: "The value is not a valid email address"
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: "The password is required"
+                    },
+                    callback: {
+                        message: "Please enter valid password",
+                        callback: function (e) {
+                            if (e.value.length > 0) return r()
+                        }
+                    }
+                }
+            },
+            "password_confirmation": {
+                validators: {
+                    notEmpty: {
+                        message: "The password confirmation is required"
+                    },
+                    identical: {
+                        compare: function () {
+                            return e.querySelector('[name="password"]').value
+                        },
+                        message: "The password and its confirm are not the same"
+                    }
+                }
+            },
+        },
+        plugins: {
+            trigger: new FormValidation.plugins.Trigger({
+                event: {
+                    password: !1
+                }
+            }),
+            bootstrap: new FormValidation.plugins.Bootstrap5({
+                rowSelector: ".fv-row",
+                eleInvalidClass: "",
+                eleValidClass: ""
+            })
+        }
+    })
+
+</script> --}}
+
 <!--end::Page Custom Javascript-->
 @endpush
