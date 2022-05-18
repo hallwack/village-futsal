@@ -19,7 +19,8 @@
         <a class="underline text-primary self-end mb-8">Saya Lupa Password</a>
         <button type="submit"
             class="bg-secondary rounded w-full text-white py-2 text-xl font-semibold mb-4">Masuk</button>
-        <p class="text-slate-800">Belum punya akun? <a class="underline text-primary">Daftar</a></p>
+        <p class="text-slate-800">Belum punya akun? <a href="{{ route('register') }}"
+                class="underline text-primary">Daftar</a></p>
     </form>
 </div>
 @endsection

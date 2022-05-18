@@ -5,6 +5,10 @@ use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FieldController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController as UserLoginController;
+use App\Http\Controllers\RegisterController as UserRegisterController;
+use App\Http\Controllers\RegisterSecondController as UserRegisterSecondController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -44,20 +48,23 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('home');
-})->name('home')->middleware('guest');
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('guest');
 
-Route::get('/sign-in', function () {
-    return view('sign-in');
-});
+Route::middleware(['guest'])->group(function () {
+    Route::name('login')->controller(UserLoginController::class)->group(function () {
+        Route::get('/login', 'index');
+        Route::post('/login', 'authenticate');
+    });
 
-Route::get('/sign-up', function () {
-    return view('sign-up');
-});
+    Route::name('register')->controller(UserRegisterController::class)->group(function () {
+        Route::get('/register', 'index');
+        Route::post('/register', 'store');
+    });
 
-Route::get('/sign-up-next', function () {
-    return view('sign-up-next');
+    Route::name('register-second')->controller(UserRegisterSecondController::class)->group(function () {
+        Route::get('/register-next', 'index');
+        Route::post('/register-next', 'store');
+    });
 });
 
 Route::get('/booking', function () {
@@ -80,26 +87,28 @@ Route::get('/success', function () {
     return view('success');
 })->name('success');
 
-Route::get('/account', function () {
-    return view('account');
-})->name('account');
+Route::name('user.')->prefix('user')->group(function () {
+    Route::get('/account', function () {
+        return view('account');
+    })->name('account');
 
-Route::get('/history-booking', function () {
-    return view('history-booking');
-})->name('history-booking');
+    Route::get('/history-booking', function () {
+        return view('history-booking');
+    })->name('history-booking');
 
-Route::get('/settings', function () {
-    return view('settings');
-})->name('settings');
+    Route::get('/settings', function () {
+        return view('settings');
+    })->name('settings');
 
-Route::get('/profile-settings', function () {
-    return view('profile-settings');
-})->name('profile-settings');
+    Route::get('/profile-settings', function () {
+        return view('profile-settings');
+    })->name('profile-settings');
 
-Route::get('/password-settings', function () {
-    return view('password-settings');
-})->name('password-settings');
+    Route::get('/password-settings', function () {
+        return view('password-settings');
+    })->name('password-settings');
 
-Route::get('/success-settings', function () {
-    return view('success-settings');
-})->name('success-settings');
+    Route::get('/success-settings', function () {
+        return view('success-settings');
+    })->name('success-settings');
+});
