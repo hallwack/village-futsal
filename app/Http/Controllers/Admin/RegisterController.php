@@ -9,6 +9,12 @@ use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest:admin');
+    }
+
     public function index()
     {
         return view('admin.auth.sign-up');
