@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('admin.')->prefix('admin')->group(function () {
+Route::name('admin.')->prefix('admin')->middleware('auth:admin')->group(function () {
 
     Route::resource('dashboard', AdminController::class);
     Route::resource('price', PriceController::class);
@@ -46,7 +46,7 @@ Route::get('/welcome', function () {
 
 Route::get('/', function () {
     return view('home');
-})->name('home');
+})->name('home')->middleware('guest');
 
 Route::get('/sign-in', function () {
     return view('sign-in');
