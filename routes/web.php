@@ -50,7 +50,7 @@ Route::get('/welcome', function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('guest');
 
-Route::middleware(['guest'])->group(function () {
+Route::middleware(['guest:web'])->group(function () {
     Route::name('login')->controller(UserLoginController::class)->group(function () {
         Route::get('/login', 'index');
         Route::post('/login', 'authenticate');
