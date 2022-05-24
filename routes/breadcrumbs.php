@@ -17,6 +17,16 @@ Breadcrumbs::for('user-admin', function (BreadcrumbTrail $trail) {
   $trail->push('User', route('admin.user.index'));
 });
 
+Breadcrumbs::for('price-admin', function (BreadcrumbTrail $trail) {
+  $trail->parent('dashboard');
+  $trail->push('Price', route('admin.price.index'));
+});
+
+Breadcrumbs::for('field-admin', function (BreadcrumbTrail $trail) {
+  $trail->parent('dashboard');
+  $trail->push('Field', route('admin.field.index'));
+});
+
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
   $trail->push('Home', route('home'));
 });
