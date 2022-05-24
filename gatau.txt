@@ -1,0 +1,22 @@
+pilih tanggal -> menyamakan tanggal yang dipilih dengan tanggal yang ada di booking -> mengambil id pada booking -> mengambil id_jadwal
+jika jadwal nya kosong pada jam sekian, jadwal bisa dipilih
+jika jadwal nya terisi pada jam sekian, jadwal tidak bisa dipilih
+
+masalah: data booking memiliki tanggal yang sama
+
+-- request tanggal
+-- request tanggal == tanggal booking
+-- tanggal booking, id booking
+-- id booking == id jadwal
+-- if jadwal ada
+--   jadwal tidak bisa dipilih
+
+pengecekan jam booking ketika di 3 jam berturut2 ada yang booking
+
+kalau muncul jam 9, pindah ke jam 10, pindah secara berturut2 sampai tidak ada jadwal di jam tersebut(?)
+
+pengecekan booking di tiap jam => mengambil data jam booking yang tersedia, disimpan di array, lalu di loop dengan jam operasional
+misalkan jam nya tidak sama, maka jam tersebut muncul sebagai jam yang bisa dibooking,
+dan misalkan jam nya sama, maka jam tersebut muncul sebagai jam yang tidak bisa dibooking.
+
+jam operasional di looping dan disamakan dengan jam yang sudah di booking.
