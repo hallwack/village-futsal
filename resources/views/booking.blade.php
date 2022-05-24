@@ -48,67 +48,35 @@
         <div class="flex flex-col py-4 border-b-2 border-b-slate-200">
             <h2 class="font-semibold text-2xl text-slate-800">Pagi</h2>
             <div class="grid grid-cols-6 gap-8 py-6">
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-9am" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-9am" class="peer group sr-only" value="9am" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
                         <p class="text-2xl font-medium">09.00</p>
                         <p class="">Rp 80K</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-10am" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-10am" class="peer group sr-only" value="10am" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
+                        <p class="text-2xl font-medium">10.00</p>
                         <p class="">Rp 80K</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-11am" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-11am" class="peer group sr-only" value="11am" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
+                        <p class="text-2xl font-medium">11.00</p>
                         <p class="">Rp 80K</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-12am" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-12am" class="peer group sr-only" value="12am" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking4" class="relative">
-                    <input type="radio" name="top-up-price" id="booking4" class="peer group sr-only" disabled />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 peer-checked:bg-primary text-gray-500 peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
+                        <p class="text-2xl font-medium">12.00</p>
                         <p class="">Rp 80K</p>
                     </div>
                 </label>
@@ -117,68 +85,44 @@
         <div class="flex flex-col py-4 border-b-2 border-b-slate-200">
             <h2 class="font-semibold text-2xl text-slate-800">Sore</h2>
             <div class="grid grid-cols-6 gap-8 py-6">
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-1pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-1pm" class="peer group sr-only" value="1pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">13.00</p>
+                        <p class="">Rp 100k</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-2pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-2pm" class="peer group sr-only" value="2pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">14.00</p>
+                        <p class="">Rp 100k</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-3pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-3pm" class="peer group sr-only" value="3pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">15.00</p>
+                        <p class="">Rp 100k</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-4pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-4pm" class="peer group sr-only" value="4pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">16.00</p>
+                        <p class="">Rp 100k</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-5pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-5pm" class="peer group sr-only" value="5pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking4" class="relative">
-                    <input type="radio" name="top-up-price" id="booking4" class="peer group sr-only" disabled />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 peer-checked:bg-primary text-gray-500 peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">17.00</p>
+                        <p class="">Rp 100k</p>
                     </div>
                 </label>
             </div>
@@ -186,70 +130,39 @@
         <div class="flex flex-col py-4 border-b-2 border-b-slate-200">
             <h2 class="font-semibold text-2xl text-slate-800">Malam</h2>
             <div class="grid grid-cols-6 gap-8 py-6">
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-6pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-6pm" class="peer group sr-only" value="6pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">18.00</p>
+                        <p class="">Rp 120K</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-7pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-7pm" class="peer group sr-only" value="7pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">19.00</p>
+                        <p class="">Rp 120K</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-8pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-8pm" class="peer group sr-only" value="8pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">20.00</p>
+                        <p class="">Rp 120K</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
+                <label for="booking-9pm" class="relative">
+                    <input type="radio" name="booking_hour" id="booking-9pm" class="peer group sr-only" value="9pm" />
                     <div
                         class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
+                        <p class="text-2xl font-medium">21.00</p>
+                        <p class="">Rp 120K</p>
                     </div>
                 </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking" class="relative">
-                    <input type="radio" name="top-up-price" id="booking" class="peer group sr-only" />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
-                <label for="booking4" class="relative">
-                    <input type="radio" name="top-up-price" id="booking4" class="peer group sr-only" disabled />
-                    <div
-                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 peer-checked:bg-primary text-gray-500 peer-checked:text-white">
-                        <p class="text-2xl font-medium">09.00</p>
-                        <p class="">Rp 80K</p>
-                    </div>
-                </label>
+
             </div>
         </div>
         <div class="flex flex-row space-x-4">
