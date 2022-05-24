@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
             $table->string('price_type');
-            $table->integer('price_hour');
+            $table->double('price_pricing');
             $table->timestamps();
             $table->softDeletes();
         });

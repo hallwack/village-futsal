@@ -14,7 +14,10 @@ class PriceController extends Controller
      */
     public function index()
     {
-        //
+        $item = Price::all();
+        return view('admin.price.index', [
+            'items' => $item
+        ]);
     }
 
     /**
@@ -69,7 +72,15 @@ class PriceController extends Controller
      */
     public function update(Request $request, Price $price)
     {
-        //
+        $request->validate([
+            'pricing' => 'required'
+        ]);
+
+        $item['price_pricing'] = $request->pricing;
+
+        Price::where('id', $price->id)->update($item);
+
+        return redirect()->route('admin.price.index');
     }
 
     /**

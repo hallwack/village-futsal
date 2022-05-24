@@ -23,7 +23,7 @@ return new class extends Migration
             $table->dateTime('booking_date');
             $table->timestamp('booking_hour');
             $table->string('payment_type');
-            $table->integer('total_payment');
+            $table->double('total_payment');
             $table->timestamps();
         });
     }

@@ -14,7 +14,10 @@ class FieldController extends Controller
      */
     public function index()
     {
-        //
+        $item = Field::all();
+        return view('admin.field.index', [
+            'items' => $item
+        ]);
     }
 
     /**

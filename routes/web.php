@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('admin.')->prefix('admin')->middleware('auth:admin')->group(function () {
+Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::resource('dashboard', AdminController::class);
     Route::resource('price', PriceController::class);

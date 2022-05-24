@@ -17,7 +17,8 @@ class PriceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'price_type' => "Harga Pagi",
+            'price_pricing' => 80000,
         ];
     }
 }
