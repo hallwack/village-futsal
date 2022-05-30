@@ -22,7 +22,7 @@
                 <option>Lapangan 3</option>
             </select>
         </div>
-        <button
+        <button type="submit"
             class="flex flex-row font-semibold text-xl bg-secondary rounded-lg py-3 px-6 h-fit text-white items-center justify-center">
             <span class="inline-block items-center mr-3">
                 <img src="{{ asset('img/icon/search-icon.svg') }}" />
