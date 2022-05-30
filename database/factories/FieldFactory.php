@@ -17,7 +17,7 @@ class FieldFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'field_name' => 'Lapangan 1',
         ];
     }
 }

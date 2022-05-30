@@ -23,4 +23,9 @@ class Booking extends Model
     {
         $this->hasOne(Field::class, 'field_id');
     }
+
+    public function price()
+    {
+        $this->hasMany(Price::class, 'price_id');
+    }
 }

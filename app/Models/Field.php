@@ -11,11 +11,6 @@ class Field extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public function price()
-    {
-        $this->hasMany(Price::class, 'price_id');
-    }
-
     public function booking()
     {
         $this->belongsTo(Booking::class);

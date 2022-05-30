@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('fields', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('price_id');
             $table->string('field_name');
             $table->timestamps();
             $table->softDeletes();

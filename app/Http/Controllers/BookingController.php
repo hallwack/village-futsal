@@ -17,6 +17,17 @@ class BookingController extends Controller
         return view('admin.booking.index');
     }
 
+    public function check(Request $request)
+    {
+        // 1. ambil tanggal dan lapangan
+        // 2. buat jam operasional
+        $operational_hour = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+
+        // 3. query jam booking di tabel booking yang ada
+        // select * from booking where
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

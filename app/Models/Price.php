@@ -13,7 +13,7 @@ class Price extends Model
 
     protected $guarded = [];
 
-    public function field()
+    public function booking()
     {
         $this->belongsToMany(Field::class);
     }

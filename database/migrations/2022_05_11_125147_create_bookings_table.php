@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('admin_id');
             $table->foreignId('user_id');
             $table->foreignId('field_id');
+            $table->foreignId('price_id');
             $table->string('booking_code');
             $table->enum('booking_status', ['paid', 'unpaid']);
             $table->dateTime('booking_date');
