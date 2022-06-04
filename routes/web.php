@@ -67,9 +67,8 @@ Route::middleware(['guest:web'])->group(function () {
     });
 });
 
-Route::get('/booking', function () {
-    return view('booking');
-})->name('booking');
+Route::get('/booking', [BookingController::class, 'index'])->name('booking');
+Route::get('/booking-check', [BookingController::class, 'check'])->name('booking.check');
 
 Route::get('/checkout', function () {
     return view('checkout');
