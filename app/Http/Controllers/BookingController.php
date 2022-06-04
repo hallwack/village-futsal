@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -14,18 +15,27 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view('admin.booking.index');
+        $booking = Booking::all();
+        $getDate = $booking->pluck('booking_hour');
+        $hourNow = Carbon::now()->format('H') . ":00:00";
+        $timePart = [
+            "pagi" => "Pagi",
+            "sore" => "Sore",
+            "malam" => "Malam"
+        ];
+        // dd($getDate);
+
+        return view('booking', [
+            'getDate' => $getDate,
+            'hourNow' => $hourNow,
+            'timePart' => $timePart
+        ]);
     }
 
     public function check(Request $request)
     {
-        // 1. ambil tanggal dan lapangan
-        // 2. buat jam operasional
-        $operational_hour = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
-
-        // 3. query jam booking di tabel booking yang ada
-        // select * from booking where
-
+        $datas = Booking::all();
+        dd($datas->pluck('booking_hour'));
     }
 
     /**

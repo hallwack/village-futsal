@@ -25,10 +25,10 @@ class BookingFactory extends Factory
             'user_id' => rand(0, 10),
             'field_id' => 1,
             'price_id' => 1,
-            'booking_code' => date('D') . date('YmdHis'),
+            'booking_code' => strtolower(date('D') . date('YmdHis')),
             'booking_status' => $bookingStatus[(rand(0, 1))],
-            'booking_date' => $dateTime->toDateTimeString(),
-            'booking_hour' => $dateTime->toDateTimeString(),
+            'booking_date' => $dateTime->toDateString('d-m-Y'),
+            'booking_hour' => "08:00:00",
             'payment_type' => 'ovo',
             'total_payment' => 80000,
         ];

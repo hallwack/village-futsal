@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreignId('price_id');
             $table->string('booking_code');
             $table->enum('booking_status', ['paid', 'unpaid']);
-            $table->dateTime('booking_date');
-            $table->timestamp('booking_hour');
+            $table->date('booking_date');
+            $table->time('booking_hour');
             $table->string('payment_type');
             $table->double('total_payment');
             $table->timestamps();
