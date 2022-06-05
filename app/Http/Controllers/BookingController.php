@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Field;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,13 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $booking = Booking::all();
-        $getDate = $booking->pluck('booking_hour');
-        $hourNow = Carbon::now()->format('H') . ":00:00";
+        $bookings = Booking::all();
+        $fields = Field::all();
+
+        $getDate = $bookings->pluck('booking_hour');
+        $getFields = $fields->pluck('field_name');
+        $timeNow = Carbon::now();
+        $hourNow = $timeNow->format('H') . ":00:00";
         $timePart = [
             "pagi" => "Pagi",
             "sore" => "Sore",
@@ -28,7 +33,9 @@ class BookingController extends Controller
         return view('booking', [
             'getDate' => $getDate,
             'hourNow' => $hourNow,
-            'timePart' => $timePart
+            'timeNow' => $timeNow,
+            'timePart' => $timePart,
+            'getFields' => $getFields
         ]);
     }
 
