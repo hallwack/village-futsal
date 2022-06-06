@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Field;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
@@ -31,6 +32,7 @@ class BookingController extends Controller
         // dd($getDate);
 
         return view('booking', [
+            'fields' => $fields,
             'getDate' => $getDate,
             'hourNow' => $hourNow,
             'timeNow' => $timeNow,
@@ -41,8 +43,29 @@ class BookingController extends Controller
 
     public function check(Request $request)
     {
-        $datas = Booking::all();
-        dd($datas->pluck('booking_hour'));
+        $bookings = Booking::all();
+
+        $getDate = $bookings->pluck('booking_hour');
+        $timeNow = Carbon::now();
+        $hourNow = $timeNow->format('H') . ":00:00";
+        $timePart = [
+            "pagi" => "Pagi",
+            "sore" => "Sore",
+            "malam" => "Malam"
+        ];
+
+        $query['booking_date'] = $request->dateNow;
+        $query['field_id'] = $request->field;
+
+        $getDataBooking = DB::table('bookings')->where('booking_date', $query['booking_date'])->where('field_id', $query['field_id'])->get();
+        // dd($getDataBooking->pluck('booking_hour'));
+        return response()->json([
+            'data' => $getDataBooking->pluck('booking_hour'),
+            'getDate' => $getDate,
+            'hourNow' => $hourNow,
+            'timeNow' => $timeNow,
+            'timePart' => $timePart,
+        ]);
     }
 
     /**
