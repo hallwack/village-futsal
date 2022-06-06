@@ -13,11 +13,13 @@
         "@tailwindcss/forms": "^0.5.0",
         "autoprefixer": "^10.4.4",
         "axios": "^0.25",
+        "babel-preset-solid": "^1.4.2",
         "browser-sync": "^2.27.9",
         "browser-sync-webpack-plugin": "^2.3.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.12",
+        "solid-js": "^1.4.3",
         "tailwindcss": "^3.0.23"
     }
 }
