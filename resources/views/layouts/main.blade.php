@@ -7,6 +7,7 @@
     @include('partials.navbar')
     @yield('content')
     @include('partials.footer-contact')
+    <script src="{{ mix('js/app.js') }}"></script>
     @stack('custom-script')
 </body>
 
