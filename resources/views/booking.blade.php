@@ -1,9 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="flex flex-row w-full py-8 border-b-2 border-b-slate-200">
-    {{ Breadcrumbs::render('booking') }}
-</div>
+<div id="booking-content">
+    {{-- <div class="flex flex-row w-full py-8 border-b-2 border-b-slate-200">
+        {{ Breadcrumbs::render('booking') }}
+</div> --}}
 <div class="flex flex-row w-full justify-center container mx-auto my-12">
     <h1 class="text-primary text-4xl font-bold">Booking</h1>
 </div>
@@ -32,8 +33,8 @@
             </span>Cari
         </button>
     </form>
-    <form class="w-3/4 h-fit flex flex-col border p-8 space-y-8 rounded-lg">
-        <h2 class="font-semibold text-3xl text-slate-800">Lapangan 1</h2>
+    <form class="w-3/4 h-fit flex flex-col border p-8 space-y-8 rounded-lg" id="bookingAvailable">
+        <h2 class="font-semibold text-3xl text-slate-800" id="fieldName">Lapangan</h2>
         <div class="flex flex-row space-x-8 pb-8 border-b-2 border-b-slate-200">
             <div class="flex flex-row items-center space-x-4">
                 <div class="h-8 w-8 border-2 border-primary"></div>
@@ -49,138 +50,6 @@
             </div>
         </div>
         <div id="booking">
-            @foreach ($timePart as $key => $value)
-            <div class="flex flex-col py-4 border-b-2 border-b-slate-200">
-                <h2 class="font-semibold text-2xl text-slate-800">{{$value}}</h2>
-                <div class="grid grid-cols-6 gap-8 py-6">
-                    @if ($key == "pagi")
-                    @for ($i = 1; $i <= 12; $i++) @if (in_array(str_pad($i, 2, "0" , STR_PAD_LEFT). ":00:00" ,
-                        $getDate->
-                        toArray()))
-                        <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                            <input type="radio" name="booking_hour" id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}"
-                                class="peer group sr-only" value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00"
-                                disabled />
-                            <input type="hidden" name="booking_price" value="80000" disabled />
-                            <div
-                                class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 text-gray-500 peer-checked:text-white">
-                                <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                <p class="">Rp 80K</p>
-                            </div>
-                        </label>
-                        @elseif ($hourNow >= str_pad($i, 2, "0", STR_PAD_LEFT). ":00:00")
-                        <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                            <input type="radio" name="booking_hour" id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}"
-                                class="peer group sr-only" value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00"
-                                disabled />
-                            <input type="hidden" name="booking_price" value="80000" disabled />
-                            <div
-                                class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 text-gray-500 peer-checked:text-white">
-                                <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                <p class="">Rp 80K</p>
-                            </div>
-                        </label>
-                        @else
-                        <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                            <input type="radio" name="booking_hour" id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}"
-                                class="peer group sr-only" value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00" />
-                            <input type="hidden" name="booking_price" value="80000">
-                            <div
-                                class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                                <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                <p class="">Rp 80K</p>
-                            </div>
-                        </label>
-                        @endif
-                        @endfor
-                        @endif
-
-                        @if ($key == "sore")
-                        @for ($i = 13; $i <= 18; $i++) @if (in_array(str_pad($i, 2, "0" , STR_PAD_LEFT). ":00:00" ,
-                            $getDate->toArray()))
-                            <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                                <input type="radio" name="booking_hour"
-                                    id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="peer group sr-only"
-                                    value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00" disabled />
-                                <input type="hidden" name="booking_price" value="100000" disabled />
-                                <div
-                                    class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 text-gray-500 peer-checked:text-white">
-                                    <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                    <p class="">Rp 100K</p>
-                                </div>
-                            </label>
-                            @elseif ($hourNow >= str_pad($i, 2, "0", STR_PAD_LEFT). ":00:00")
-                            <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                                <input type="radio" name="booking_hour"
-                                    id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="peer group sr-only"
-                                    value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00" disabled />
-                                <input type="hidden" name="booking_price" value="100000" disabled />
-                                <div
-                                    class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 text-gray-500 peer-checked:text-white">
-                                    <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                    <p class="">Rp 100K</p>
-                                </div>
-                            </label>
-                            @else
-                            <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                                <input type="radio" name="booking_hour"
-                                    id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="peer group sr-only"
-                                    value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00" />
-                                <input type="hidden" name="booking_price" value="100000">
-                                <div
-                                    class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                                    <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                    <p class="">Rp 100K</p>
-                                </div>
-                            </label>
-                            @endif
-                            @endfor
-                            @endif
-
-                            @if ($key == "malam")
-                            @for ($i = 19; $i <= 21; $i++) @if (in_array(str_pad($i, 2, "0" , STR_PAD_LEFT). ":00:00" ,
-                                $getDate->toArray()))
-                                <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                                    <input type="radio" name="booking_hour"
-                                        id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="peer group sr-only"
-                                        value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00" disabled />
-                                    <input type="hidden" name="booking_price" value="120000" disabled />
-                                    <div
-                                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 text-gray-500 peer-checked:text-white">
-                                        <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                        <p class="">Rp 120K</p>
-                                    </div>
-                                </label>
-                                @elseif ($hourNow >= str_pad($i, 2, "0", STR_PAD_LEFT). ":00:00")
-                                <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                                    <input type="radio" name="booking_hour"
-                                        id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="peer group sr-only"
-                                        value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00" disabled />
-                                    <input type="hidden" name="booking_price" value="120000" disabled />
-                                    <div
-                                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 text-gray-500 peer-checked:text-white">
-                                        <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                        <p class="">Rp 120K</p>
-                                    </div>
-                                </label>
-                                @else
-                                <label for="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="relative">
-                                    <input type="radio" name="booking_hour"
-                                        id="booking-{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}" class="peer group sr-only"
-                                        value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}:00:00" />
-                                    <input type="hidden" name="booking_price" value="120000">
-                                    <div
-                                        class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
-                                        <p class="text-2xl font-medium">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}.00</p>
-                                        <p class="">Rp 120K</p>
-                                    </div>
-                                </label>
-                                @endif
-                                @endfor
-                                @endif
-                </div>
-            </div>
-            @endforeach
         </div>
 
         <div class="flex flex-row space-x-4">
@@ -193,39 +62,111 @@
         </div>
     </form>
 
-    <div id="check-solid"></div>
+</div>
 </div>
 @endsection
 
 @push('custom-script')
 <script>
-    // const form = document.getElementById("bookingCheck");
-    // form.addEventListener("submit", (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData(form);
-    //     axios
-    //         .post("{{ route('booking.check') }}", formData, {
-    //             headers: {
-    //                 "Content-Type": "multipart/form-data",
-    //             },
-    //         })
-    //         .then((res) => {
-    //             const {
-    //                 data,
-    //                 timePart,
-    //                 getDate,
-    //                 hourNow,
-    //                 timeNow
-    //             } = res.data;
-    //             console.log(timePart);
-    //             Object.keys(timePart).forEach((value) => {
-    //                 console.log(value)
-    //             })
-    //         })
-    //         .catch((err) => {
-    //             alert(err)
-    //         });
-    // });
+    const formatter = new Intl.NumberFormat('en', {
+        notation: 'compact'
+    });
+
+    const cardAvailable = (data, price) => {
+        return `<label for="booking-${data.toString().padStart(2, "0")}" class="relative">
+            <input type="radio" name="booking_hour" id="booking-${data.toString().padStart(2, "0")}" class="peer group sr-only"
+                value="${data.toString().padStart(2, "0")}:00:00" />
+            <input type="hidden" name="booking_price" value="${price}">
+            <div
+                class="flex flex-col items-center justify-between rounded h-full px-8 py-4 border-2 border-primary/70 peer-checked:bg-primary text-primary peer-checked:text-white">
+                <p class="text-2xl font-medium">${data.toString().padStart(2, "0")}.00
+                </p>
+                <p class="">Rp ${formatter.format(price)}</p>
+            </div>
+        </label>`
+    }
+
+    const cardIdle = (data, price) => {
+        return `<label for="booking-${data.toString().padStart(2, "0")}" class="relative">
+            <input type="radio" name="booking_hour" id="booking-${data.toString().padStart(2, "0")}" class="peer group sr-only" value="${data.toString().padStart(2, "0")}:00:00" disabled />
+            <input type="hidden" name="booking_price" value="${price}" disabled />
+            <div class="flex flex-col items-center justify-between rounded h-full px-8 py-4 bg-gray-300 text-gray-500 peer-checked:text-white">
+                <p class="text-2xl font-medium">${data.toString().padStart(2, "0")}.00
+                </p>
+                <p class="">Rp ${formatter.format(price)}</p>
+            </div>
+        </label>`
+    }
+
+    const form = document.getElementById("bookingCheck");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        axios
+            .post("{{ route('booking.check') }}", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then((res) => {
+                const {
+                    data,
+                    timePart,
+                    getDate,
+                    hourNow,
+                    timeNow,
+                    field
+                } = res.data;
+                var html = ``
+                Object.keys(timePart).forEach(element => {
+                    html += `<div class="flex flex-col py-4 border-b-2 border-b-slate-200">
+                <h2 class="font-semibold text-2xl text-slate-800">${timePart[element]}</h2>
+                <div class="grid grid-cols-6 gap-8 py-6">`
+                    if (element == 'pagi') {
+                        for (let i = 1; i <= 12; i++) {
+                            if (data.includes(parseInt(i + ":00:00"))) {
+                                html += cardAvailable(i, 80000)
+                            } else if (parseInt(hourNow) >= parseInt(i + ":00:00")) {
+                                html += cardIdle(i, 80000)
+                            } else {
+                                html += cardAvailable(i, 80000)
+                            }
+                        }
+                    }
+                    if (element == 'sore') {
+                        for (let i = 13; i <= 18; i++) {
+                            if (data.includes(parseInt(i + ":00:00"))) {
+                                html += cardAvailable(i, 80000)
+                            } else if (parseInt(hourNow) >= parseInt(i + ":00:00")) {
+                                html += cardIdle(i, 80000)
+                            } else {
+                                html += cardAvailable(i, 80000)
+                            }
+                        }
+                    }
+                    if (element == 'malam') {
+                        for (let i = 19; i <= 21; i++) {
+                            if (data.includes(parseInt(i + ":00:00"))) {
+                                html += cardAvailable(i, 80000)
+                            } else if (parseInt(hourNow) >= parseInt(i + ":00:00")) {
+                                html += cardIdle(i, 80000)
+                            } else {
+                                html += cardAvailable(i, 80000)
+                            }
+                        }
+                    }
+                    html += `</div>
+            </div>`
+                });
+                document.getElementById('booking').innerHTML = html
+                const fieldName = document.getElementById('field').options[document.getElementById('field')
+                    .selectedIndex].text;
+                document.getElementById('fieldName').innerHTML = fieldName;
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+    });
 
 </script>
 @endpush
