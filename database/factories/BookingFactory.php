@@ -18,17 +18,17 @@ class BookingFactory extends Factory
     public function definition()
     {
         $bookingStatus = ['paid', 'unpaid'];
-        $dateTime = Carbon::now();
+        $dateTime = Carbon::tomorrow();
 
         return [
             'admin_id' => rand(0, 3),
             'user_id' => rand(0, 10),
-            'field_id' => rand(0, 2),
+            'field_id' => 1,
             'price_id' => 1,
             'booking_code' => strtolower(date('D') . date('YmdHis')),
             'booking_status' => $bookingStatus[(rand(0, 1))],
             'booking_date' => $dateTime->toDateString('d-m-Y'),
-            'booking_hour' => "20:00:00",
+            'booking_hour' => "23:00:00",
             'payment_type' => 'ovo',
             'total_payment' => 80000,
         ];

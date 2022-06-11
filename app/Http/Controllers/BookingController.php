@@ -57,10 +57,12 @@ class BookingController extends Controller
         $query['booking_date'] = $request->dateNow;
         $query['field_id'] = $request->field;
 
-        $getDataBooking = DB::table('bookings')->where('booking_date', $query['booking_date'])->where('field_id', $query['field_id'])->get();
+        $getDataBooking = Booking::where('booking_date', $query['booking_date'])->where('field_id', $query['field_id'])->get();
         // dd($getDataBooking->pluck('booking_hour'));
+        // dd($getDataBooking);
         return response()->json([
-            'data' => $getDataBooking->pluck('booking_hour'),
+            'dataHour' => $getDataBooking->pluck('booking_hour'),
+            'dataDate' => $getDataBooking->pluck('booking_date'),
             'getDate' => $getDate,
             'hourNow' => $hourNow,
             'timeNow' => $timeNow,

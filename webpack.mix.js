@@ -20,6 +20,3 @@ mix.js("resources/js/app.js", "public/js").postCss(
         //
     ]
 );
-mix.babelConfig({
-    presets: ["solid"],
-});

@@ -9,7 +9,7 @@
     <h1 class="text-primary text-4xl font-bold">Booking</h1>
 </div>
 <div class="flex flex-row w-full justify-center container mx-auto my-8 space-x-8">
-    <form class="w-1/4 h-fit flex flex-col border p-8 space-y-8 rounded-lg" action="{{ route('booking.check') }}"
+    <form class="w-96 h-fit flex flex-col border p-8 space-y-8 rounded-lg" action="{{ route('booking.check') }}"
         method="POST" id="bookingCheck">
         <h2 class="font-semibold text-3xl text-slate-800">Cari Lapangan</h2>
         <div class="flex flex-col">
@@ -72,6 +72,13 @@
         notation: 'compact'
     });
 
+    function toJSONLocal(date) {
+        var local = new Date(date);
+        return local.toISOString().slice(0, 10);
+    }
+
+    const today = new Date()
+
     const cardAvailable = (data, price) => {
         return `<label for="booking-${data.toString().padStart(2, "0")}" class="relative">
             <input type="radio" name="booking_hour" id="booking-${data.toString().padStart(2, "0")}" class="peer group sr-only"
@@ -110,12 +117,10 @@
             })
             .then((res) => {
                 const {
-                    data,
+                    dataHour,
+                    dataDate,
                     timePart,
-                    getDate,
                     hourNow,
-                    timeNow,
-                    field
                 } = res.data;
                 var html = ``
                 Object.keys(timePart).forEach(element => {
@@ -123,11 +128,18 @@
                 <h2 class="font-semibold text-2xl text-slate-800">${timePart[element]}</h2>
                 <div class="grid grid-cols-6 gap-8 py-6">`
                     if (element == 'pagi') {
-                        for (let i = 1; i <= 12; i++) {
-                            if (data.includes(parseInt(i + ":00:00"))) {
-                                html += cardAvailable(i, 80000)
-                            } else if (parseInt(hourNow) >= parseInt(i + ":00:00")) {
+                        for (let i = 0; i <= 12; i++) {
+                            if (dataDate.includes(toJSONLocal(today)) && dataHour.includes(String(
+                                    i +
+                                    ":00:00"))) {
                                 html += cardIdle(i, 80000)
+                            } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
+                                parseInt(i + ":00:00")) {
+                                html += cardIdle(i, 80000)
+                            } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
+                                .includes(
+                                    String(i + ":00:00"))) {
+                                html += cardAvailable(i, 80000)
                             } else {
                                 html += cardAvailable(i, 80000)
                             }
@@ -135,9 +147,16 @@
                     }
                     if (element == 'sore') {
                         for (let i = 13; i <= 18; i++) {
-                            if (data.includes(parseInt(i + ":00:00"))) {
-                                html += cardAvailable(i, 80000)
-                            } else if (parseInt(hourNow) >= parseInt(i + ":00:00")) {
+                            if (dataDate.includes(toJSONLocal(today)) && dataHour.includes(String(
+                                    i +
+                                    ":00:00"))) {
+                                html += cardIdle(i, 80000)
+                            } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
+                                parseInt(i + ":00:00")) {
+                                html += cardIdle(i, 80000)
+                            } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
+                                .includes(
+                                    String(i + ":00:00"))) {
                                 html += cardIdle(i, 80000)
                             } else {
                                 html += cardAvailable(i, 80000)
@@ -145,10 +164,17 @@
                         }
                     }
                     if (element == 'malam') {
-                        for (let i = 19; i <= 21; i++) {
-                            if (data.includes(parseInt(i + ":00:00"))) {
-                                html += cardAvailable(i, 80000)
-                            } else if (parseInt(hourNow) >= parseInt(i + ":00:00")) {
+                        for (let i = 19; i <= 23; i++) {
+                            if (dataDate.includes(toJSONLocal(today)) && dataHour.includes(String(
+                                    i +
+                                    ":00:00"))) {
+                                html += cardIdle(i, 80000)
+                            } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
+                                parseInt(i + ":00:00")) {
+                                html += cardIdle(i, 80000)
+                            } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
+                                .includes(
+                                    String(i + ":00:00"))) {
                                 html += cardIdle(i, 80000)
                             } else {
                                 html += cardAvailable(i, 80000)
