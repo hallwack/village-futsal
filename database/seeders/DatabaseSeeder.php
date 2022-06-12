@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        // \App\Models\Admin::factory(3)->create();
-        // \App\Models\Price::factory()->create();
-        // \App\Models\Field::factory()->create();
+        \App\Models\User::factory(10)->create();
+        \App\Models\Admin::factory(3)->create();
         \App\Models\Booking::factory(10)->create();
+        $this->call(PriceSeeder::class);
+        $this->call(FieldSeeder::class);
     }
 }

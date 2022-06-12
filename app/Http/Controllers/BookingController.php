@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Field;
+use App\Models\Price;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
@@ -45,9 +45,9 @@ class BookingController extends Controller
     {
         $bookings = Booking::all();
 
-        $getDate = $bookings->pluck('booking_hour');
         $timeNow = Carbon::now();
-        $hourNow = $timeNow->format('H') . ":00:00";
+        $getDate = $timeNow->format('Y-m-d');
+        $hourNow = $timeNow->format('H');
         $timePart = [
             "pagi" => "Pagi",
             "sore" => "Sore",
@@ -58,8 +58,8 @@ class BookingController extends Controller
         $query['field_id'] = $request->field;
 
         $getDataBooking = Booking::where('booking_date', $query['booking_date'])->where('field_id', $query['field_id'])->get();
-        // dd($getDataBooking->pluck('booking_hour'));
-        // dd($getDataBooking);
+        $getPrice = Price::all();
+
         return response()->json([
             'dataHour' => $getDataBooking->pluck('booking_hour'),
             'dataDate' => $getDataBooking->pluck('booking_date'),
@@ -67,6 +67,7 @@ class BookingController extends Controller
             'hourNow' => $hourNow,
             'timeNow' => $timeNow,
             'timePart' => $timePart,
+            'price' => $getPrice
         ]);
     }
 
@@ -88,7 +89,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

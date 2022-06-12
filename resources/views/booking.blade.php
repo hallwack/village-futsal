@@ -33,7 +33,8 @@
             </span>Cari
         </button>
     </form>
-    <form class="w-3/4 h-fit flex flex-col border p-8 space-y-8 rounded-lg" id="bookingAvailable">
+    <form class="w-3/4 h-fit flex flex-col border p-8 space-y-8 rounded-lg" id="bookingAvailable" method="POST"
+        action="{{ route('booking.store') }}">
         <h2 class="font-semibold text-3xl text-slate-800" id="fieldName">Lapangan</h2>
         <div class="flex flex-row space-x-8 pb-8 border-b-2 border-b-slate-200">
             <div class="flex flex-row items-center space-x-4">
@@ -121,6 +122,7 @@
                     dataDate,
                     timePart,
                     hourNow,
+                    price
                 } = res.data;
                 var html = ``
                 Object.keys(timePart).forEach(element => {
@@ -132,16 +134,16 @@
                             if (dataDate.includes(toJSONLocal(today)) && dataHour.includes(String(
                                     i +
                                     ":00:00"))) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[0].price_pricing)
                             } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
                                 parseInt(i + ":00:00")) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[0].price_pricing)
                             } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
                                 .includes(
                                     String(i + ":00:00"))) {
-                                html += cardAvailable(i, 80000)
+                                html += cardAvailable(i, price[0].price_pricing)
                             } else {
-                                html += cardAvailable(i, 80000)
+                                html += cardAvailable(i, price[0].price_pricing)
                             }
                         }
                     }
@@ -150,16 +152,16 @@
                             if (dataDate.includes(toJSONLocal(today)) && dataHour.includes(String(
                                     i +
                                     ":00:00"))) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[1].price_pricing)
                             } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
                                 parseInt(i + ":00:00")) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[1].price_pricing)
                             } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
                                 .includes(
                                     String(i + ":00:00"))) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[1].price_pricing)
                             } else {
-                                html += cardAvailable(i, 80000)
+                                html += cardAvailable(i, price[1].price_pricing)
                             }
                         }
                     }
@@ -168,16 +170,16 @@
                             if (dataDate.includes(toJSONLocal(today)) && dataHour.includes(String(
                                     i +
                                     ":00:00"))) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[2].price_pricing)
                             } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
                                 parseInt(i + ":00:00")) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[2].price_pricing)
                             } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
                                 .includes(
                                     String(i + ":00:00"))) {
-                                html += cardIdle(i, 80000)
+                                html += cardIdle(i, price[2].price_pricing)
                             } else {
-                                html += cardAvailable(i, 80000)
+                                html += cardAvailable(i, price[2].price_pricing)
                             }
                         }
                     }

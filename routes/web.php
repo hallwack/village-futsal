@@ -69,6 +69,7 @@ Route::middleware(['guest:web'])->group(function () {
 
 Route::get('/booking', [BookingController::class, 'index'])->name('booking');
 Route::post('/booking-check', [BookingController::class, 'check'])->name('booking.check');
+Route::post('/booking-store', [BookingController::class, 'store'])->name('booking.store');
 
 Route::get('/checkout', function () {
     return view('checkout');
