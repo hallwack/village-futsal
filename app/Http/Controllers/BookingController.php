@@ -43,8 +43,6 @@ class BookingController extends Controller
 
     public function check(Request $request)
     {
-        $bookings = Booking::all();
-
         $timeNow = Carbon::now();
         $getDate = $timeNow->format('Y-m-d');
         $hourNow = $timeNow->format('H');
@@ -67,7 +65,9 @@ class BookingController extends Controller
             'hourNow' => $hourNow,
             'timeNow' => $timeNow,
             'timePart' => $timePart,
-            'price' => $getPrice
+            'price' => $getPrice,
+            'bookingDate' => $query['booking_date'],
+            'fieldId' => $query['field_id'],
         ]);
     }
 
@@ -89,7 +89,17 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $request->validate([
+            'booking_hour' => ['required'],
+        ]);
+
+        $item['booking_date'] = $request->booking_date;
+        $item['booking_hour'] = $request->booking_hour;
+        $item['total_payment'] = $request->booking_price;
+        $item['field_id'] = $request->field_id;
+        $item['booking_status'] = 'unpaid';
+        $item['booking_code'] = strtolower(date('D') . date('YmdHis'));
+        dd($item);
     }
 
     /**

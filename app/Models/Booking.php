@@ -14,18 +14,8 @@ class Booking extends Model
         $this->hasMany(User::class, 'user_id');
     }
 
-    public function admin()
-    {
-        $this->hasMany(Admin::class, 'admin_id');
-    }
-
     public function field()
     {
         $this->hasOne(Field::class, 'field_id');
-    }
-
-    public function price()
-    {
-        $this->hasMany(Price::class, 'price_id');
     }
 }

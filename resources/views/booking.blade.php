@@ -17,14 +17,24 @@
             <input type="date" name="dateNow" id="dateNow"
                 class="form-input rounded-md border-0 text-slate-800 text-lg p-0" value="{{ $timeNow->toDateString() }}"
                 min="{{ $timeNow->toDateString() }}" />
+            @error('dateNow')
+            <div class="mt-1">
+                <span class="text-red-500 text-sm font-medium">{{ $message }}</span>
+            </div>
+            @enderror
         </div>
         <div class="flex flex-col">
-            <label for="email" class="text-slate-800 mb-2" for="field">Lapangan</label>
+            <label for="field" class="text-slate-800 mb-2" for="field">Lapangan</label>
             <select class="form-select border-0" name="field" id="field">
                 @foreach ($fields as $field)
                 <option value="{{ $field->id }}">{{ $field->field_name }}</option>
                 @endforeach
             </select>
+            @error('field')
+            <div class="mt-1">
+                <span class="text-red-500 text-sm font-medium">{{ $message }}</span>
+            </div>
+            @enderror
         </div>
         <button type="submit"
             class="flex flex-row font-semibold text-xl bg-secondary rounded-lg py-3 px-6 h-fit text-white items-center justify-center">
@@ -49,7 +59,13 @@
                 <div class="h-8 w-8 bg-primary"></div>
                 <p>Dipilih</p>
             </div>
+            @csrf
         </div>
+        @error('booking_hour')
+        <div class="mt-1">
+            <span class="text-red-500 text-lg font-medium">Jam Booking Harus Dipilih Terlebih Dahulu</span>
+        </div>
+        @enderror
         <div id="booking">
         </div>
 
@@ -122,7 +138,10 @@
                     dataDate,
                     timePart,
                     hourNow,
-                    price
+                    price,
+                    bookingDate,
+                    fieldId,
+                    getDate
                 } = res.data;
                 var html = ``
                 Object.keys(timePart).forEach(element => {
@@ -135,10 +154,10 @@
                                     i +
                                     ":00:00"))) {
                                 html += cardIdle(i, price[0].price_pricing)
-                            } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
+                            } else if (getDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
                                 parseInt(i + ":00:00")) {
                                 html += cardIdle(i, price[0].price_pricing)
-                            } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
+                            } else if (!(getDate.includes(toJSONLocal(today))) && dataHour
                                 .includes(
                                     String(i + ":00:00"))) {
                                 html += cardAvailable(i, price[0].price_pricing)
@@ -153,13 +172,13 @@
                                     i +
                                     ":00:00"))) {
                                 html += cardIdle(i, price[1].price_pricing)
-                            } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
+                            } else if (getDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
                                 parseInt(i + ":00:00")) {
                                 html += cardIdle(i, price[1].price_pricing)
-                            } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
+                            } else if (!(getDate.includes(toJSONLocal(today))) && dataHour
                                 .includes(
                                     String(i + ":00:00"))) {
-                                html += cardIdle(i, price[1].price_pricing)
+                                html += cardAvailable(i, price[1].price_pricing)
                             } else {
                                 html += cardAvailable(i, price[1].price_pricing)
                             }
@@ -171,13 +190,13 @@
                                     i +
                                     ":00:00"))) {
                                 html += cardIdle(i, price[2].price_pricing)
-                            } else if (dataDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
+                            } else if (getDate.includes(toJSONLocal(today)) && parseInt(hourNow) >=
                                 parseInt(i + ":00:00")) {
                                 html += cardIdle(i, price[2].price_pricing)
-                            } else if (!(dataDate.includes(toJSONLocal(today))) && dataHour
+                            } else if (!(getDate.includes(toJSONLocal(today))) && dataHour
                                 .includes(
                                     String(i + ":00:00"))) {
-                                html += cardIdle(i, price[2].price_pricing)
+                                html += cardAvailable(i, price[2].price_pricing)
                             } else {
                                 html += cardAvailable(i, price[2].price_pricing)
                             }
@@ -186,6 +205,9 @@
                     html += `</div>
             </div>`
                 });
+                html +=
+                    `<input type="hidden" name="booking_date" id="booking_date" value="${bookingDate}" />`
+                html += `<input type="hidden" name="field_id" id="field_id" value="${fieldId}" />`
                 document.getElementById('booking').innerHTML = html
                 const fieldName = document.getElementById('field').options[document.getElementById('field')
                     .selectedIndex].text;

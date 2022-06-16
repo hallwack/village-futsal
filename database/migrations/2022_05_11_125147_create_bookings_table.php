@@ -15,15 +15,14 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('admin_id');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->foreignId('field_id');
-            $table->foreignId('price_id');
             $table->string('booking_code');
             $table->enum('booking_status', ['paid', 'unpaid']);
             $table->date('booking_date');
             $table->time('booking_hour');
-            $table->string('payment_type');
+            $table->string('payment_type')->nullable();
+            $table->string('payment_code')->nullable();
             $table->double('total_payment');
             $table->timestamps();
         });

@@ -21,10 +21,8 @@ class BookingFactory extends Factory
         $dateTime = Carbon::now();
 
         return [
-            'admin_id' => rand(1, 3),
             'user_id' => rand(1, 10),
             'field_id' => rand(1, 3),
-            'price_id' => 1,
             'booking_code' => strtolower(date('D') . date('YmdHis')),
             'booking_status' => $bookingStatus[(rand(0, 1))],
             'booking_date' => $dateTime->toDateString('d-m-Y'),

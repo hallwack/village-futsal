@@ -12,9 +12,4 @@ class Price extends Model
     use SoftDeletes;
 
     protected $guarded = [];
-
-    public function booking()
-    {
-        $this->belongsToMany(Field::class);
-    }
 }

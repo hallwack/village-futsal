@@ -15,11 +15,6 @@ class Admin extends Authenticatable
 
     protected $fillable = ['admin_name', 'admin_username', 'admin_password', 'admin_email'];
 
-    public function booking()
-    {
-        $this->belongsToMany(Booking::class);
-    }
-
     public function getAuthPassword()
     {
         return $this->admin_password;
