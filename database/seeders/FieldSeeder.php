@@ -19,15 +19,18 @@ class FieldSeeder extends Seeder
         $insert = ([
             [
                 'field_name' => "Lapangan 1",
-                'created_at' => Carbon::now()
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
                 'field_name' => "Lapangan 2",
-                'created_at' => Carbon::now()
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
                 'field_name' => "Lapangan 3",
-                'created_at' => Carbon::now()
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
         ]);
 
