@@ -66,15 +66,15 @@
         <div class="flex flex-col space-y-4 pb-8 border-b-2 border-b-slate-200 text-slate-800">
             <div class="flex flex-row items-center justify-between">
                 <p>Tanggal</p>
-                <p>Tersedia</p>
+                <p>{{ $booking_date }}</p>
             </div>
             <div class="flex flex-row items-center justify-between">
                 <p>Lapangan</p>
-                <p>Sudah dibooking</p>
+                <p>{{ $field->field_name }}</p>
             </div>
             <div class="flex flex-row items-center justify-between">
                 <p>Jam</p>
-                <p>Dipilih</p>
+                <p>{{ $booking_hour }}</p>
             </div>
         </div>
         <div class="flex flex-row justify-between items-center text-slate-800">

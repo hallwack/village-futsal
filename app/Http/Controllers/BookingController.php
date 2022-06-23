@@ -99,7 +99,16 @@ class BookingController extends Controller
         $item['field_id'] = $request->field_id;
         $item['booking_status'] = 'unpaid';
         $item['booking_code'] = strtolower(date('D') . date('YmdHis'));
-        dd($item);
+        // Booking::create($item);
+        $field = Field::where('id', $item['field_id'])->first();
+        // dd($field);
+
+        return view('checkout', [
+            'booking_date' => $item['booking_date'],
+            'field' => $field,
+            'booking_hour' => $item['booking_hour'],
+            'price' => $item['total_payment']
+        ]);
     }
 
     /**
