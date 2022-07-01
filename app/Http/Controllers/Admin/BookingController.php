@@ -1,23 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Field;
+use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
-class FieldController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $item = Field::all();
-        return view('admin.field.index', [
-            'items' => $item
-        ]);
+        $item = Booking::select('bookings.*', 'fields.field_name', 'users.user_name', 'users.user_phone')->join('fields', 'bookings.field_id', '=', 'fields.id')->join('users', 'bookings.user_id', '=', 'users.id')->get();
+        // dd($request->all());
+        return view(
+            'admin.booking.index',
+            ['items' => $item]
+        );
     }
 
     /**
@@ -44,10 +48,10 @@ class FieldController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Field  $field
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Field $field)
+    public function show($id)
     {
         //
     }
@@ -55,10 +59,10 @@ class FieldController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Field  $field
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Field $field)
+    public function edit($id)
     {
         //
     }
@@ -67,29 +71,29 @@ class FieldController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Field  $field
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Field $field)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'field_name' => 'required'
+            'paid_status' => 'required'
         ]);
 
-        $item['field_name'] = $request->field_name;
+        $item['booking_status'] = $request->paid_status;
 
-        Field::where('id', $field->id)->update($item);
+        Booking::where('id', $id)->update($item);
 
-        return redirect()->route('admin.field.index');
+        return redirect()->route('admin.booking.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Field  $field
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Field $field)
+    public function destroy($id)
     {
         //
     }

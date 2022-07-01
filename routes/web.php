@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\HomeController;
@@ -29,7 +30,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('dashboard', AdminController::class);
     Route::resource('price', PriceController::class);
     Route::resource('field', FieldController::class);
-    Route::resource('booking', BookingController::class);
+    Route::resource('booking', AdminBookingController::class);
     Route::resource('user', UserController::class);
 });
 

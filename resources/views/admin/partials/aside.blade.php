@@ -126,8 +126,8 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ (request()->is('admin/voucher*')) ? 'active' : '' }}"
-                        href="{{ url('admin/voucher') }}">
+                    <a class="menu-link {{ (request()->is('admin/booking*')) ? 'active' : '' }}"
+                        href="{{ url('admin/booking') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-primary svg-icon-2">
                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Shopping/Ticket.svg-->
@@ -152,8 +152,8 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ (request()->is('admin/category*')) ? 'active' : '' }}"
-                        href="{{ url('admin/category') }}">
+                    <a class="menu-link {{ (request()->is('admin/field*')) ? 'active' : '' }}"
+                        href="{{ url('admin/field') }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-primary svg-icon-2">
                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Shopping/Box1.svg-->
